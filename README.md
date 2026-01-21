@@ -42,7 +42,7 @@ The lab is built around key questions a SOC analyst would ask:
 
 For full step-by-step details, task checklists, screenshots, reflections, and experiment results, see:
 
-- [`lab-notes.md`](lab-notes.md)
+- [`Home SOC & SIEM Guide.md`](Home-SOC-&-SIEM-Guide.md)
 
 This is where all hands-on work, troubleshooting, and experiments are documented in detail.
 
