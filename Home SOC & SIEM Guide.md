@@ -381,7 +381,7 @@ Building this dashboard highlighted how quickly complexity can grow in a central
 Below is a **sanitized example** of the completed dashboard (fields containing hostnames, usernames, timestamps, and network identifiers have been intentionally redacted):
 
 <p align="center">
-  <img src="images/Screenshot%20Two.png" alt="Packet Example Image" width="500">
+  <img src="images/Screenshot%20Two.png" alt="SOC Dashboard Example" width="500">
 </p>
 
 *Example packet capture used during traffic analysis.*
