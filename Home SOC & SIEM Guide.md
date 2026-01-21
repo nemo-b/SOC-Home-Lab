@@ -380,7 +380,11 @@ Building this dashboard highlighted how quickly complexity can grow in a central
 
 Below is a **sanitized example** of the completed dashboard (fields containing hostnames, usernames, timestamps, and network identifiers have been intentionally redacted):
 
-![[Screenshot Two 1.png]]
+<p align="center">
+  <img src="images/Screenshot%20Two.png" alt="Packet Example Image" width="500">
+</p>
+
+*Example packet capture used during traffic analysis.*
 > _Fields containing hostnames, usernames, timestamps, and network identifiers have been intentionally redacted._
 
 
