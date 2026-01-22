@@ -54,8 +54,6 @@ This is where all hands-on work, troubleshooting, and experiments are documented
   <img src="images/Screenshot%20Two.png" alt="SOC Dashboard Example" width="500">
 </p>
 
-*Example packet capture used during traffic analysis.*
-
 *Example Splunk dashboard from the lab.*
 
 ---
