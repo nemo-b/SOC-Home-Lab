@@ -196,7 +196,7 @@ I successfully executed a subnet scan (e.g., `192.168.1.0/24`) to generate a vis
 - **Process:** Used CIDR notation to define the scan range, identifying all interconnected nodes (VMs, host machines, and gateway).
 - **Data Sanitization (OPSEC):** For documentation purposes, all screenshots of the network topology have been sanitized. Public IP addresses and sensitive internal MAC addresses were redacted to maintain **Operations Security (OPSEC)** while still demonstrating network architectural knowledge.
 
-📸 Example Visuals
+## 📸 Example Visuals
 <p align="center">
   <img src="images/Nmap%20Output%20Example%201.png" alt="Nmap Output Example 1" width="500"> 
 </p>
