@@ -18,17 +18,17 @@
 
 ### Phase 1: Network Mapping & Baseline
 
-- [ ] Create a **home network inventory**
+- [x] Create a **home network inventory**
 - Device name
 - IP address
 - OS
 - Role (workstation, VM, router, etc.)
 
-- [ ]  Perform an **initial Nmap scan**  
+- [x]  Perform an **initial Nmap scan**  
 - Identify open ports and services
 - Document findings as a baseline snapshot
 
-- [ ]  Save Nmap output for comparison  
+- [x]  Save Nmap output for comparison  
 - Purpose: detect future changes, not exploit systems
 
 **Key Question:**  
@@ -177,6 +177,24 @@ https://www.youtube.com/watch?v=3CiRs6WaWaU
 
 - - -
 ## Project notes! :
+
+## 📊 Nmap: Learning Recap (Project Context)
+#### **1. Tool Familiarization & Objective**
+
+To establish a baseline for the SOC Home Lab, I utilized **Nmap (via the Zenmap GUI)** to perform network discovery. The primary objective was to map the local network topology and identify active services that require monitoring within the SIEM (Splunk).
+- **Learning Resource:** [Zenmap Lab Tutorial - Nmap/Zenmap Basics](https://www.youtube.com/watch?v=ayx8luaHk2c)
+- **Methodology:** Initial testing was conducted against the `scanme.nmap.org` sandbox to verify Nmap output formats and service detection capabilities without exposing local infrastructure during the learning phase.
+#### **2. Service Enumeration & Security Observations**
+
+During testing, I observed a significant delta in open ports between the tutorial environment and live targets.
+- **Discovery:** Identified nearly 1,000 scanned ports on the test target, with a high density of "Open" vs. "Closed/Filtered" states.
+- **SOC Insight:** A high number of open ports increases the **Attack Surface**. In a production environment, this would trigger a "Hardening" task to close any non-essential services.
+
+#### **3. Topology Mapping & Subnet Discovery**
+
+I successfully executed a subnet scan (e.g., `192.168.1.0/24`) to generate a visual **Network Topology Map**.
+- **Process:** Used CIDR notation to define the scan range, identifying all interconnected nodes (VMs, host machines, and gateway).
+- **Data Sanitization (OPSEC):** For documentation purposes, all screenshots of the network topology have been sanitized. Public IP addresses and sensitive internal MAC addresses were redacted to maintain **Operations Security (OPSEC)** while still demonstrating network architectural knowledge.
 
 ## 📊 Splunk: Learning Recap (Project Context)
 
