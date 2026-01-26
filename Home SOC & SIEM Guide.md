@@ -63,22 +63,6 @@
 **Key Question:**
 > _Can I see important activity from multiple systems in one place using Splunk?_hase 2: Log Collection & Centralization
 
-
-- [ ]  Enable **Windows Event Logging**
-- Authentication events
-- Account activity
-- System changes
-
-- [ ]  Enable **Linux authentication logs**
-- SSH attempts
-- Privilege escalation events
-
-- [ ]  Forward logs to a **central log platform**
-- Focus on consistency, not volume
-
-**Key Question:**  
-> *Can I see important activity from multiple systems in one place?*
-
 ---
 
 ### Phase 3: Basic Detection & Correlation (Splunk Analysis)
