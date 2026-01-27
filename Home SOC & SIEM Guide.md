@@ -78,12 +78,12 @@
 - System events by host
 - Login failures by source
 
-- [ ]  Perform **manual correlation in Splunk**
+- [x]  Perform **manual correlation in Splunk**
 - Network scan activity vs authentication attempts
 - Time-based event clustering
 - Cross-host behavior comparison
 
-- [ ]  Apply basic filtering and search refinement
+- [x]  Apply basic filtering and search refinement
 - Narrow searches by host, user, or time window
 - Reduce noise to highlight signal
 
@@ -149,14 +149,14 @@
 > *If an employer skimmed this in 60 seconds, would they understand my thinking?*
 
 - - -
-# 📝 Here are some videos for projects!
-### Build Your Own Cybersecurity Lab at Home (For FREE)
+### 📝 Here are some videos for projects!
+##### Build Your Own Cybersecurity Lab at Home (For FREE)
 https://www.youtube.com/watch?v=izmCJlJEvQw
 
-### Lets BUILD a FREE Cybersecurity SIEM Lab in UNDER 15 minutes | SOC ANALYST
+##### Lets BUILD a FREE Cybersecurity SIEM Lab in UNDER 15 minutes | SOC ANALYST
 https://www.youtube.com/watch?v=QT81wcuoRFY
 
-### Splunk Tutorial for Beginners (Cyber Security Tools)
+##### Splunk Tutorial for Beginners (Cyber Security Tools)
 https://www.youtube.com/watch?v=3CiRs6WaWaU
 
 - - -
