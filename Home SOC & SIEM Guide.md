@@ -38,12 +38,12 @@
 
 ### Phase 2: Log Collection & Centralization (SIEM Introduction)
 
-- [ ]  Enable **Windows Event Logging**
+- [x]  Enable **Windows Event Logging**
 - Authentication events (success/failure)
 - Account activity
 - System changes
 
-- [ ]  Enable **Linux authentication logs**
+- [x]  Enable **Linux authentication logs**
 - SSH login attempts
 - Privilege escalation events (`sudo`, `su`)
 
@@ -678,16 +678,54 @@ End-to-end pipeline confirmed:
 - Persistent documentation enables systematic problem isolation
 
 ---
-## Future Work
 
-This project is approaching a stable stopping point for its initial scope. The current focus is on finalizing the Splunk dashboard and documenting the lab in a way that clearly demonstrates intent, design decisions, and learned concepts.
+## **SOC Lab Phase 2: Engineering the Telemetry Pipeline**
 
-Planned next steps include:
-- **Refinement and Light Alerting**  
-    Minor improvements to dashboard readability and the possible addition of basic alerts (e.g., authentication failure spikes) to move from passive monitoring toward actionable visibility.
-- **Transition to Network-Focused Analysis (Nmap)**  
-    Once the Splunk portion is finalized, focus will shift to learning and using **Nmap** to explore network discovery and scanning techniques. Findings from Nmap will later be correlated with log data concepts learned in this project.
+### **Summary of the Build & Troubleshooting Journey**
 
+#### **1. The Connectivity Hurdle (Network Engineering)**
+
+- **The Problem:** Initial communication between the Ubuntu Forwarder and the Windows Indexer failed. Pings were successful from Windows to Ubuntu, but blocked in reverse.
+- **The Learning Process:** * Diagnosed the issue as a **Windows Firewall ICMP block** and a **Network Profile mismatch** (Public vs. Private).
+    - **The Fix:** Manually configured inbound rules for **TCP 9997** and **ICMPv4**. Verified the fix by monitoring consistent ping "Echo Requests" on the Ubuntu terminal.
+
+#### **2. Data Routing & Index Management**
+
+- **The Problem:** Data was initially defaulting to the `main` index, creating a "noisy" environment where system logs and security logs were mixed.
+    
+- **The Learning Process:** * Discovered that Splunk monitors are persistent. Simply adding a new monitor wouldn't work because the file was already "locked" to the default index.
+    - **The Fix:** Executed a "Remove and Replace" workflow. Used `splunk remove monitor` to clear the path, then re-mapped the source to a custom `linux_logs` index for better data segregation.
+
+#### **3. Permission Blocks & Visibility**
+
+- **The Problem:** The Universal Forwarder was connected, but reported 0 events from `/var/log/auth.log`.
+- **The Learning Process:** * Identified a **Linux File Permission** conflict. The log file was restricted to root-only access (`600`), preventing the Splunk service from reading it.
+    - **The Fix:** Adjusted permissions to `644` (Global Read), allowing the telemetry to flow while maintaining system stability.
+
+#### **4. Overcoming Field Extraction Failures (Data Parsing)**
+
+- **The Problem:** Standard Splunk searches for `user` and `command` returned no results in the dashboard panels, despite the raw data being present.
+- **The Learning Process:** * Recognized that without specific Linux Add-ons, Splunk treats logs as "unstructured strings."
+    - **The Fix:** Wrote **Custom Regular Expressions (Regex)** using the `rex` command to manually extract the `executing_user` and `cmd_run` fields. This ensured the dashboard could display meaningful charts regardless of the OS version.
+
+## 📸 Example Visuals
+
+<p align="center">
+  <img src="images/Linux%20Dashboard.png" alt="Linux Dashboard Image" width="500">
+</p>
+
+_Dashboard for Authentication & Privilege Escalation Auditing._
+
+---
+
+### **Final Infrastructure State**
+
+- **Host A (Windows):** Acting as the Central Indexer and SOC Dashboard.
+- **Host B (Ubuntu):** Acting as the Target/Forwarder.
+- **Security Capabilities:** Real-time visibility into **failed logins** (Brute Force detection) and **sudo execution** (Privilege Escalation monitoring).
+
+
+---
 This section is intentionally scoped to maintain clarity and prevent overextension while keeping the lab expandable for future learning.
 
 
