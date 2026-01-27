@@ -51,10 +51,22 @@ This is where all hands-on work, troubleshooting, and experiments are documented
 ## 📸 Example Visuals
 
 <p align="center">
-  <img src="images/Screenshot%20Two.png" alt="SOC Dashboard Example" width="500">
+  <img src="images/Nmap%20Topology%20Example.png" alt="SOC Dashboard Example" width="500">
+</p>
+
+*Example Nmap network Map from the lab.*
+
+<p align="center">
+  <img src="images/Windows%20Dashboard.png" alt="SOC Dashboard Example" width="500">
 </p>
 
 *Example Splunk dashboard from the lab.*
+
+<p align="center">
+  <img src="images/Linux%20Dashboard.png" alt="SOC Dashboard Example" width="500">
+</p>
+
+*Example Linux dashboard from the lab.*
 
 ---
 
