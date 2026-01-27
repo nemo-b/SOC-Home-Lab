@@ -103,11 +103,19 @@ I successfully executed a subnet scan (e.g., `192.168.1.0/24`) to generate a vis
 
 ## **📸 Example Visuals**
 
-![[Nmap Output Example 1.png]] ![[Nmap Output Example 2 1.png]]
+<p align="center">
+  <img src="images/Nmap%20Output%20Example%201.png" alt="Windows Dashboard" width="500">
+</p>
+
+<p align="center">
+  <img src="images/Nmap%20Output%20Example%202.png" alt="Windows Dashboard" width="500">
+</p>
 
 > _Example of Nmap Output._
 
-![[Nmap Topology Example.png]]
+<p align="center">
+  <img src="images/Nmap%20Topology%20Example.png" alt="Windows Dashboard" width="500">
+</p>
 
 > _Example of My Network Topology._
 
@@ -283,7 +291,9 @@ To avoid an authentication-only view, this panel tracks general system activity 
 
 Building this dashboard highlighted how quickly complexity can grow. Even with a single host, careful scoping is necessary to prevent information overload. Below is a **sanitized example** of the completed dashboard:
 
-![[Screenshot Two 1.png]]
+<p align="center">
+  <img src="images/Windows%20Dashboard.png" alt="Windows Dashboard" width="500">
+</p>
 
 > _Fields containing hostnames, usernames, timestamps, and network identifiers have been intentionally redacted._
 
@@ -382,11 +392,23 @@ sudo ./splunk add monitor /var/log/auth.log
 ---
 ## **📸 Example Visuals**
 
-![[Screenshot 2026-01-22 133935 1.png]] _Terminal from the Ubuntu Laptop._
+<p align="center">
+  <img src="images/Splunk%20Input%20from%20Ubuntu.png" alt="Windows Dashboard" width="500">
+</p>
 
-![[Screenshot 2026-01-22 134715.png]] _Splunk result on Windows Laptop._
+_Terminal from the Ubuntu Laptop._
 
-![[Screenshot 2026-01-26 210312.png]] _Final Dashboard for Authentication & Privilege Escalation Auditing._
+<p align="center">
+  <img src="images/Splunk%20Output%20from%20Ubuntu.png" alt="Splunk Output from Ubuntu" width="500">
+</p>
+
+_Splunk result on Windows Laptop._
+
+<p align="center">
+  <img src="images/Linux%20Dashboard.png" alt="Windows Dashboard" width="500">
+</p>
+
+_Final Dashboard for Authentication & Privilege Escalation Auditing._
 
 ---
 ## **💡 Key Takeaways**
@@ -439,7 +461,9 @@ I utilized **heavy Gaussian blurs** rather than solid black redaction boxes for 
 ---
 ## **📸 Example Visuals**
 
-![[Ubuntu Forwarder Active from Windows Nmap.png]]
+<p align="center">
+  <img src="images/Ubuntu%20Forwarder%20Active from%20Windows%20Nmap.png" alt="Windows Dashboard" width="500">
+</p>
 
 > **Description:** _Nmap Service Discovery: Identifying Splunkd Management (Port 8089) and Data Pipeline on Ubuntu Endpoint._
 
