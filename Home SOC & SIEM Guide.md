@@ -533,6 +533,9 @@ During execution, I managed several "Real World" technical hurdles:
 ## **🛡️ Post-Incident Analysis**
 When the script ran, it correctly identified that **Port 22 (SSH)** was closed.
 - **Analyst Insight:** Instead of seeing a "Closed" port as a failure, I documented it as a **successful audit**. It proved the script was accurately reflecting the state of the machine after a major system update, highlighting a need for "Service Health Monitoring" in the SOC.
+
+If youd like to see the script code yourself, feel free to look at it here: **[port-scanner](https://github.com/nemo-b/SOC-Home-Lab/blob/main/scripts/port_scanner.py)**
+
 ## **📸 Example Visuals**
 
 <p align="center">
