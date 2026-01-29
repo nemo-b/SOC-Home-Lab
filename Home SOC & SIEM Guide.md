@@ -469,6 +469,76 @@ I utilized **heavy Gaussian blurs** rather than solid black redaction boxes for 
 
 ---
 # **Phase 4: Detection Engineering & Behavioral Analytics**
-**Focus**: _Alerting, advanced stats, and building security dashboards._
+**Focus**: Defining "The Malicious," creating SIEM triggers, and validating the telemetry loop.
+
+---
+## **🎯 Objective**
+To move beyond passive log collection and establish an active monitoring posture. This phase focuses on creating logic that can differentiate between standard user activity and potential "Brute Force" attacks.
+## **🛠️ The Engineering Process**
+
+### **1. Signal Development (SPL)**
+I developed a search query using **Splunk Processing Language (SPL)** to identify high-frequency authentication failures.
+- **Query:** `index=linux_logs "Failed password" | stats count by user, src_ip | where count >= 3`
+- **Technical Logic:** This search aggregates unstructured "Failed password" logs into structured counts, filtering for events where a single source attempts more than three failed logins within a specific window.
+### **2. Orchestrating the "Live Fire" Test**
+To validate the detection, I simulated a local Brute Force attack on the Ubuntu host:
+- **Simulation:** `for i in {1..5}; do ssh localhost; done`
+- **Result:** Verified the **Telemetry Pipeline** was healthy as the Splunk index updated in real-time, showing an event count jump from **17 to 25**.
+### **3. Alert Configuration & Optimization**
+
+To ensure the SOC is notified of this activity, I configured a **Scheduled Alert**:
+- **Scheduling:** Implemented a **Cron Schedule** (`*/5 * * * *`) to run the detection engine every five minutes.
+- **Time Window:** Configured a **15-minute look-back window** to ensure sufficient data overlap and capture all relevant events.
+- **Actions:** Set the alert to trigger a **High Severity** event in the SIEM dashboard upon discovery.
+## **🔍 Advanced Troubleshooting: The "Job Management" Audit**
+
+During the validation phase, I encountered a scenario where search results were present, but UI notifications were delayed. I performed a deep-dive audit of the Splunk backend:
+- **Diagnostic:** Navigated to the **Job Management** console to verify execution.
+- **Finding:** Confirmed that the alert "Jobs" were executing successfully on the Cron schedule and returning the correct data hits.
+- **Analyst Insight:** This troubleshooting step allowed me to verify that the **detection logic** was functional even when the **presentation layer** required adjustment—a crucial distinction for a SIEM Administrator.
+## **📸 Example Visuals**
+<p align="center">
+  <img src="images/Linux%20Alert.png" alt="Windows Dashboard" width="500">
+</p>
+
+_The Linux alert in Alerts Tab._
+
+<p align="center">
+  <img src="images/Alert%20Event%20Output.png" alt="Windows Dashboard" width="500">
+</p>
+
+_Brute force Attempt Search with Results._
+
+<p align="center">
+  <img src="images/Alert%20Response%20Output.png" alt="Windows Dashboard" width="500">
+</p>
+
+_Brute force Alert Events._
+
+---
+# **Phase 5: Security Automation (Python Layer)**
+**Focus:** _Scripting for post-incident response and automated compliance auditing._
+
+---
+## **🎯 Objective**
+To reduce manual effort in the SOC by writing a Python script that audits the "Attack Surface" of the environment.
+## **💻 Development & Implementation**
+
+### **1. The "Port Watcher" Script**
+I authored `port_scanner.py` using Python’s native `socket` library. The script was designed to perform a targeted scan of the Ubuntu endpoint to verify that critical service ports (SSH/Splunk) were in the expected state.
+### **2. Troubleshooting the Environment**
+During execution, I managed several "Real World" technical hurdles:
+- **Pathing & Execution Aliases:** Resolved issues where Python wasn't recognized by the Windows shell by managing app execution aliases and installing a verified Python 3.13 environment.
+- **Socket Error Handling:** Diagnosed and fixed a `socket.gaierror (Errno 11001)` by refining the IP address string and ensuring correct data types were passed to the `connect_ex` function.
+## **🛡️ Post-Incident Analysis**
+When the script ran, it correctly identified that **Port 22 (SSH)** was closed.
+- **Analyst Insight:** Instead of seeing a "Closed" port as a failure, I documented it as a **successful audit**. It proved the script was accurately reflecting the state of the machine after a major system update, highlighting a need for "Service Health Monitoring" in the SOC.
+## **📸 Example Visuals**
+
+<p align="center">
+  <img src="images/Python%20Port%20Scanner%20Example.png" alt="Windows Dashboard" width="500">
+</p>
+
+_Python Port Scanner Script in Use._
 
 ---
