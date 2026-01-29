@@ -64,9 +64,9 @@ _Focus: Foundation of a security professional._
 ---
 ### **Phase 6: Professional Summary & SOC Portfolio**
 
-- [ ] **Executive Reporting:** Draft a SOC-style summary for potential employers.
-- [ ] **Evidence Gallery:** Finalize sanitized screenshots of dashboards and alerts.
-- [ ] **Project Reflection:** Highlight the "Analyst Thinking" behind every technical choice.
+- [x] **Executive Reporting:** Draft a SOC-style summary for potential employers.
+- [x] **Evidence Gallery:** Finalize sanitized screenshots of dashboards and alerts.
+- [x] **Project Reflection:** Highlight the "Analyst Thinking" behind every technical choice.
 
 > **Key Question:** _If an employer skimmed this for 60 seconds, would they understand my thinking?_
 
@@ -544,4 +544,19 @@ If youd like to see the script code yourself, feel free to look at it here: **[p
 
 _Python Port Scanner Script in Use._
 
+---
+# **Phase 6: Project Conclusion & Future Roadmap**
+**Focus**: Concluding Ideas. 
+
+---
+### **Lessons Learned**
+- **The Importance of Visibility:** Building this lab highlighted that a SIEM is only as good as its data ingestion. Troubleshooting the Universal Forwarder on Ubuntu reinforced my understanding of Linux service management and log permissions.
+- **Alerting vs. Auditing:** Discovering the "Job Management" backend taught me that "Detection" happens at the database level, while "Alerting" is a separate notification layer. Mastering both is essential for reducing false negatives in a SOC.
+- **Automation as a Force Multiplier:** Moving from manual Nmap scans to a Python-based auditor showed me how scripts can provide instant compliance checks, saving time during incident triage.
+
+### **🚀 The Next Horizon**
+With the telemetry pipeline established, some next objectives idea for this lab environment include:
+1. **Honeypot Integration:** Deploying a "Cowrie" Honeypot on a DMZ subnet to capture and analyze real-world brute force patterns and incorporate them into Splunk dashboards.
+2. **Suricata/IDS Implementation:** Adding a Network Intrusion Detection System (IDS) to monitor the traffic between the Windows and Linux hosts for signature-based threat detection.
+3. **Advanced Visualization:** Developing a "SOC Analyst Executive Dashboard" in Splunk to track "Mean Time to Detect" (MTTD) based on my simulated attacks.
 ---
