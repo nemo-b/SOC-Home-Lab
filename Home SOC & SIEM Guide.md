@@ -46,18 +46,18 @@ _Focus: Foundation of a security professional._
 ---
 ### **Phase 4: Detection Engineering & Behavioral Analytics**
 
-- [ ] **Advanced Alerting:** Configure Splunk triggers for Brute Force and Privilege Escalation.
-- [ ] **Network Delta Analysis:** Run periodic Nmap scans and compare results to Phase 1 baseline.
-- [ ] **Behavioral Profiling:** Does network activity align with expected endpoint behavior?
+- [x] **Advanced Alerting:** Configure Splunk triggers for Brute Force and Privilege Escalation.
+- [x] **Network Delta Analysis:** Run periodic Nmap scans and compare results to Phase 1 baseline.
+- [x] **Behavioral Profiling:** Does network activity align with expected endpoint behavior?
 
 > **Key Question:** _Do network changes match what my logs are telling me?_
 
 ---
 ### **Phase 5: Automation (Python – Minimal & Intentional)**
 
-- [ ] **Python Integration:** Write a script to parse Nmap XML outputs or flag new ports.
-- [ ] **Automated Reporting:** Generate human-readable summaries of network changes.
-- [ ] **SOC Workflow Optimization:** Document how automation reduces analyst fatigue.
+- [x] **Python Integration:** Write a script to parse Nmap XML outputs or flag new ports.
+- [x] **Automated Reporting:** Generate human-readable summaries of network changes.
+- [x] **SOC Workflow Optimization:** Document how automation reduces analyst fatigue.
 
 > **Key Question:** _Can I reduce repetitive analysis with simple automation?_
 
